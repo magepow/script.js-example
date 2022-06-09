@@ -28,10 +28,13 @@
             return false;
         }
         var vendor = document.getElementById('script-vendor');
-        $script([vendor.dataset.jquery, vendor.dataset.slick], function(){
-            $(document).ready(function() {
-                var carousel = $('.js-carousel');
-                var carouselSlick = carousel.slick(carousel.data());
+        $script([vendor.dataset.jquery], 'jquery');
+        $script.ready('jquery', function(){
+            $script([vendor.dataset.slick], function(){
+                $(document).ready(function() {
+                    var carousel = $('.js-carousel');
+                    var carouselSlick = carousel.slick(carousel.data());
+                });            
             });
         });
     })();
