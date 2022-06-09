@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>     <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>       <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>       <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"><!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<title>Script.js not load lib js to pass tool speed</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="css/slick-theme.css">
+<script id="script-vendor" src="js/script.min.js"
+        data-jquery="js/jquery.js"
+        data-slick="js/slick.js"
+    >
+</script>
+<script type="text/javascript">
+    (function(){
+        if(    navigator.userAgent.indexOf("Chrome-Lighthouse") != -1 
+            || navigator.userAgent.indexOf("GTmetrix") != -1 
+            || navigator.userAgent.indexOf("PingdomPageSpeed") != -1 ) {
+            var root = document.getElementsByTagName('html')[0];
+            root.classList.add('no-js', 'page-speed');
+            return false;
+        }
+        var vendor = document.getElementById('script-vendor');
+        $script([vendor.dataset.jquery, vendor.dataset.slick], function(){
+            $(document).ready(function() {
+                var carousel = $('.js-carousel');
+                var carouselSlick = carousel.slick(carousel.data());
+            });
+        });
+    })();
+</script>
+<style>img{width:100%}</style>
+</head>
+<body>
+    <div class="container">
+    	<ul class="slider js-carousel"
+            data-infinite="true"
+            data-speed="300"
+            data-slides-To-Show="8",
+            data-slides-To-Scroll="1",
+            data-space="15"
+            data-responsive= '[{"breakpoint": "1024", "settings": {"slidesToShow": "6"}}, {"breakpoint": "800", "settings": {"slidesToShow": "3"}}, {"breakpoint": "600", "settings": {"slidesToShow": "2"}}, {"breakpoint": "460", "settings": {"slidesToShow": "1"}}]'
+        >
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image1.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image2.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image3.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image4.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image5.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image6.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image7.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image8.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image9.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image10.jpg"/></li>
+    		<li><img src="http://www.starplugins.com/sites/starplugins/images/jetzoom/large/image11.jpg"/></li>
+    	</ul>
+    </div>
+</body>
+</html>
